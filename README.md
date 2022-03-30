@@ -27,7 +27,7 @@
 
 To start locally simply execute `start.cmd` and both ui and service will start in the Docker
 
-###Data base structure
+### Data base structure
 
 ##### Schema:
 
