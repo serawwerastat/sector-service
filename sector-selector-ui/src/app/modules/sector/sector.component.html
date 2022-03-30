@@ -1,0 +1,69 @@
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<app-alert
+  (close)="onHandleError()"
+  *ngIf="error && !isLoading"
+  [message]="error"></app-alert>
+<div *ngIf="!isLoading" class="row" id="inputForm">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="row">
+      <h4>Please enter your name and pick the Sectors you are currently involved in.</h4>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="sectorInputForm">
+      <div class="row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            class="form-control"
+            formControlName="name"
+            id="name"
+            type="text">
+        </div>
+        <span *ngIf="isInvalidInput('name')" class="help-block">
+            Please enter valid name!
+          </span>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <label for="sector">Sectors</label>
+          <mat-select
+            class="form-control"
+            formControlName="sector"
+            id="sector"
+            multiple>
+            <mat-option
+              *ngFor="let sector of (sectors | async).sectors"
+              [ngClass]="sector.parent ? 'optionGroup' : ''"
+              [style.padding-left.px]="sector.level * 15"
+              [value]="sector.id">
+              {{sector.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <span *ngIf="isInvalidInput('sector')" class="help-block">
+            Please select at least one sector!
+          </span>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <mat-checkbox
+            class="form-check-input"
+            formControlName="agreement"
+            id="agreement">
+            Agree to terms
+          </mat-checkbox>
+        </div>
+        <span *ngIf="isInvalidInput('agreement')" class="help-block">
+            Please agree to terms!
+          </span>
+      </div>
+      <div class="row">
+        <button [disabled]="!sectorInputForm.valid" color="accent" mat-raised-button type="submit">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

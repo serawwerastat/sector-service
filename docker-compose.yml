@@ -1,0 +1,12 @@
+version: '1'
+services:
+  sector-service:
+    image: docker.io/collos/sector-selector-app
+    container_name: sector-service
+    ports:
+    - "8085:8085"
+  sector-ui:
+    image: docker.io/collos/sector-selector-ui
+    container_name: sector-ui
+    ports:
+    - "4200:80"

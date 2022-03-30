@@ -1,0 +1,3 @@
+@ECHO OFF
+docker-compose up
+IF ERRORLEVEL 1 PAUSE
