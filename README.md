@@ -17,13 +17,13 @@
 - Refill the form using stored data
 - Allow the user to edit his/her own data during the session
 
-###Structure
+### Structure
 
 - sector-selector-ui - UI. Port: 4200. Angular 11
 - sector-selector-app - back-end. Port: 8085. Spring 2.6.5
 - hibernate DB - starts with back-end with default data
 
-###Running locally
+### Running locally
 
 To start locally simply execute `start.cmd` and both ui and service will start in the Docker
 
