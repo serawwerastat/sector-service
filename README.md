@@ -31,7 +31,7 @@ To start locally simply execute `start.cmd` and both ui and service will start i
 
 ##### Schema:
 
-![schemaImg](https://raw.githubusercontent.com/serawwerastat/sector-service/master/DB_schema.png)
+![schemaImg](https://raw.githubusercontent.com/serawwerastat/sector-service/master/Data_base_schema.png)
 
 Schemas can be also found in `sector-selector-app/src/main/resources/data.sql`
 
