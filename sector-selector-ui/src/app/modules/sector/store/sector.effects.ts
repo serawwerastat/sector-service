@@ -73,9 +73,10 @@ export class SectorEffects {
   }
 
   handleError(error: HttpErrorResponse) {
+    console.log(error);
     let errorMsg;
-    if (error?.error?.error) {
-      errorMsg = error?.error?.error;
+    if (error?.error?.message) {
+      errorMsg = error?.error?.message;
     } else {
       errorMsg = error;
     }
